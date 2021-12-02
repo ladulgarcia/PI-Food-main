@@ -26,7 +26,7 @@ const getRecipesInfo = async () => {
     });
     return recipesInfo; // La solicitud de info API-Recipes
 };
-// ------------------------ Traigo BD ---------------------------------------------------
+// ------------------------ Traigo DB ---------------------------------------------------
 const getDbInfo = async () => {
     return await Recipe.findAll({
         include: {
@@ -40,7 +40,10 @@ const getDbInfo = async () => {
 }
 // ------------------------ Concatenación -----------------------------------------------
 const getAllRecipes = async () => {
-    let recipeInfo = await
+    const recipeInfo = await getRecipesInfo(); // llamo a la API (y lo ejecuto)
+    const dbInfo = await getDbInfo(); // lo mismo para DB
+    const infoTotal = recipeInfo.concat(dbInfo); // concatena API con DB
+    return infoTotal
 
 }
 module.exports = router;
