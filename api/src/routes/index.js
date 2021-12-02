@@ -11,17 +11,17 @@ const router = Router();
 // ------------------------ Traigo info API ---------------------------------------------------
 const getRecipesInfo = async () => {
     const recipesUrl = await axios.get('https://api.spoonacular.com/recipes/complexSearch');
-    const recipesInfo = await recipesUrl.data.map(el => {
+    const recipesInfo = await recipesUrl.data.map(e => {
         return {
-            diets: el.diets,
-            title: el.title,
-            summary: el.summary,
-            image: el.image,
-            points: el.spoonacularScore,
-            time: el.readyInMinutes,
-            servings: el.servings,
-            healthScore: el.healthScore,
-            steps: el.analyzedInstructions
+            diets: e.diets,
+            title: e.title,
+            summary: e.summary,
+            image: e.image,
+            points: e.spoonacularScore,
+            time: e.readyInMinutes,
+            servings: e.servings,
+            healthScore: e.healthScore,
+            steps: e.analyzedInstructions
         };
     });
     return recipesInfo; // La solicitud de info API-Recipes
@@ -39,8 +39,9 @@ const getDbInfo = async () => {
     })
 }
 // ------------------------ Concatenación -----------------------------------------------
+const getAllRecipes = async () => {
+    let recipeInfo = await
 
-
-
+}
 module.exports = router;
 
